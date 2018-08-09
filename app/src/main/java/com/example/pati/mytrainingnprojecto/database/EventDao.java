@@ -23,4 +23,5 @@ public interface EventDao {
     @Query("SELECT *FROM event_table")
     LiveData<List<EventEntity>> getAllEvents();
 
+
 }
