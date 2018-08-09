@@ -13,7 +13,7 @@ import android.arch.persistence.room.OnConflictStrategy;
 @Database(entities = {EventEntity.class}, version = 1)
 public abstract class EventDatabase extends RoomDatabase {
 
-    public EventDao eventDao;
+    public abstract EventDao eventDao();
     private static EventDatabase INSTANCE;
 
 static EventDatabase getEventDatabase(final Context context){

@@ -17,11 +17,11 @@ public class DataRepository {
 
     DataRepository(Application application) {
         EventDatabase eventDatabase = EventDatabase.getEventDatabase(application);
-        eventDao=eventDatabase.eventDao;
+        eventDao=eventDatabase.eventDao();
         allEvents=eventDao.getAllEvents();
     }
 
-    LiveData<List<EventEntity>> getAllEvents(){
+   LiveData<List<EventEntity>> getAllEvents(){
         return allEvents;
     }
 
