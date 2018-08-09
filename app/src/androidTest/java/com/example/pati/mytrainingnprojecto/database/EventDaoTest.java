@@ -14,6 +14,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static junit.framework.Assert.assertEquals;
@@ -36,11 +37,22 @@ private EventDao theeventDao;
     }
 
     @Test
-    public void getAllEvents() throws InterruptedException {
+    public void getOneEvent() throws InterruptedException {
         EventEntity eventEntity= new EventEntity(1,"first_event");
         theeventDao.insert(eventEntity);
         List<EventEntity> eventList= LiveDataTestUtil.getValue(theeventDao.getAllEvents());
         assertEquals(eventEntity,eventList.get(0));
+    }
+
+    @Test
+    public void getAllEnets()throws InterruptedException{
+        List<EventEntity> eventsList= new ArrayList<>();
+        eventsList.add(new EventEntity(1,"MeetingOne"));
+        eventsList.add(new EventEntity(2,"MeetingTwo"));
+        eventsList.add(new EventEntity(3,"MeetingThree"));
+
+        theeventDao.insert(eventsList);
+        assertEquals(eventsList,LiveDataTestUtil.getValue(theeventDao.getAllEvents()));
     }
 
     @After
