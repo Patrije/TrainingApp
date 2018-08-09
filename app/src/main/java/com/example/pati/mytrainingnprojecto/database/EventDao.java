@@ -17,6 +17,9 @@ public interface EventDao {
     @Insert
     void insert(EventEntity eventEntity);
 
+    @Insert
+    void insert(List<EventEntity> eventsList);
+
     @Query("DELETE FROM event_table")
     void deleteAll();
 
